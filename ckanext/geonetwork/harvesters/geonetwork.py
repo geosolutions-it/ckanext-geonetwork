@@ -116,35 +116,12 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
         group_mapping = self.source_config.get('group_mapping', {})
 
         if group_mapping:
-            try:
-                context = {'model': model, 'session': Session, 'user': 'harvest'}
-                validated_groups = []
+            groups = self.handle_groups(harvest_object, group_mapping, gn_localized_url)
+            if groups:
+                package_dict['groups'] = groups
 
-                version = self.source_config.get('version')
-                client = GeoNetworkClient(gn_localized_url, version)
-                cats = client.retrieveMetadataCategories(harvest_object.guid)
-                for cat in cats:
-                    groupname = group_mapping[cat]
-
-                    printname = groupname if not None else "NONE"
-                    log.debug("category %s mapped into %s" % (cat, printname))
-
-                    if groupname:
-                        try:
-                            data_dict = {'id': groupname}
-                            group = get_action('group_show')(context, data_dict)
-                            #log.info('Group %s found %s' % (groupname, group))
-                            #if self.api_version == 1:
-                                #validated_groups.append(group['name'])
-                            #else:
-                            #validated_groups.append(group['id'])
-                            validated_groups.append({'name': groupname})
-                        except NotFound, e:
-                            log.warning('Group %s from category %s is not available' % (groupname, cat))
-
-                package_dict['groups'] = validated_groups
-            except e:
-                log.warning('Error handling groups for metadata %s' % harvest_object.guid)
+        # Fix resources type according to resource_locator_protocol
+        self.fix_resource_type(package_dict['resources'])
 
         # End of processing, return the modified package
         return package_dict
@@ -163,4 +140,38 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
 
         return
 
+    def handle_groups(self, harvest_object, group_mapping, gn_localized_url):
+        try:
+            context = {'model': model, 'session': Session, 'user': 'harvest'}
+            validated_groups = []
 
+            version = self.source_config.get('version')
+            client = GeoNetworkClient(gn_localized_url, version)
+            cats = client.retrieveMetadataCategories(harvest_object.guid)
+            for cat in cats:
+                groupname = group_mapping[cat]
+
+                printname = groupname if not None else "NONE"
+                log.debug("category %s mapped into %s" % (cat, printname))
+
+                if groupname:
+                    try:
+                        data_dict = {'id': groupname}
+                        get_action('group_show')(context, data_dict)
+                        #log.info('Group %s found %s' % (groupname, group))
+                        #if self.api_version == 1:
+                            #validated_groups.append(group['name'])
+                        #else:
+                        #validated_groups.append(group['id'])
+                        validated_groups.append({'name': groupname})
+                    except NotFound, e:
+                        log.warning('Group %s from category %s is not available' % (groupname, cat))
+        except e:
+            log.warning('Error handling groups for metadata %s' % harvest_object.guid)
+
+        return validated_groups
+
+    def fix_resource_type(self, resources):
+        for resource in resources:
+            if 'OGC:WMS' in resource['resource_locator_protocol']:
+                resource['format'] = 'wms'
