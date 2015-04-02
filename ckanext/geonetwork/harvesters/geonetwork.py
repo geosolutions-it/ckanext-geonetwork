@@ -18,6 +18,8 @@ from ckanext.spatial.model import ISOElement
 
 from ckan.logic import ValidationError, NotFound, get_action
 
+from pylons import config
+from datetime import datetime
 
 log = logging.getLogger(__name__)
 
@@ -175,3 +177,12 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
         for resource in resources:
             if 'OGC:WMS' in resource['resource_locator_protocol']:
                 resource['format'] = 'wms'
+
+                if config.get('ckanext.spatial.harvest.validate_wms', False):
+                    # Check if the service is a view service
+                    url = resource['url']
+                    test_url = url.split('?')[0] if '?' in url else url
+                    if self._is_wms(test_url):
+                        resource['verified'] = True
+                        resource['verified_date'] = datetime.now().isoformat()
+
