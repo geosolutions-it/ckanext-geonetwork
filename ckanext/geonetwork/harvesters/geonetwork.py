@@ -168,7 +168,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
                         validated_groups.append({'name': groupname})
                     except NotFound, e:
                         log.warning('Group %s from category %s is not available' % (groupname, cat))
-        except e:
+        except Exception, e:
             log.warning('Error handling groups for metadata %s' % harvest_object.guid)
 
         return validated_groups
