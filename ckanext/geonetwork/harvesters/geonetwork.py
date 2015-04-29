@@ -156,7 +156,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
             for cat in cats:
                 groupname = group_mapping[cat]
 
-                printname = groupname if not None else "NONE"
+                printname = groupname if groupname else "NONE"
                 log.debug("category %s mapped into %s" % (cat, printname))
 
                 if groupname:
