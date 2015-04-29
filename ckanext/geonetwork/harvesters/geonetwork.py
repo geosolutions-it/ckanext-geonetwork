@@ -122,6 +122,9 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
             if groups:
                 package_dict['groups'] = groups
 
+        if self.source_config.get('private_datasets', True):
+            package_dict['private'] = True
+
         # Fix resources type according to resource_locator_protocol
         self.fix_resource_type(package_dict['resources'])
 
