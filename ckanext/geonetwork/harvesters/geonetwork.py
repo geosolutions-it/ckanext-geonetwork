@@ -121,9 +121,11 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
             groups = self.handle_groups(harvest_object, group_mapping, gn_localized_url)
             if groups:
                 package_dict['groups'] = groups
-
-        if self.source_config.get('private_datasets', True):
+	
+	#log.debug('::::::::::::::::::::::: %r ', self.source_config.get('private_datasets'))
+        if self.source_config.get('private_datasets') == "True":
             package_dict['private'] = True
+	#log.debug('::::::::::::::::::::::: %r ', package_dict['private'])
 
         # Fix resources type according to resource_locator_protocol
         self.fix_resource_type(package_dict['resources'])
@@ -156,7 +158,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
             for cat in cats:
                 groupname = group_mapping[cat]
 
-                printname = groupname if groupname else "NONE"
+                printname = groupname if not None else "NONE"
                 log.debug("category %s mapped into %s" % (cat, printname))
 
                 if groupname:
