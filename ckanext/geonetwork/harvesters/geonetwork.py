@@ -113,19 +113,19 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
         if time_extents:
             log.info("Adding Time Instants...")
             package_dict['extras'].append({'key': 'temporal-extent-instant', 'value': time_extents})
-
-        # Handle groups mapping using GeoNetwork categories
+        
+        ## Configuring package groups            
         group_mapping = self.source_config.get('group_mapping', {})
 
         if group_mapping:
-            groups = self.handle_groups(harvest_object, group_mapping, gn_localized_url)
+            groups = self.handle_groups(harvest_object, group_mapping, gn_localized_url, iso_values)
             if groups:
                 package_dict['groups'] = groups
-	
-	#log.debug('::::::::::::::::::::::: %r ', self.source_config.get('private_datasets'))
+
+        #log.debug('::::::::::::::::::::::: %r ', self.source_config.get('private_datasets'))
         if self.source_config.get('private_datasets') == "True":
             package_dict['private'] = True
-	#log.debug('::::::::::::::::::::::: %r ', package_dict['private'])
+        #log.debug('::::::::::::::::::::::: %r ', package_dict['private'])
 
         # Fix resources type according to resource_locator_protocol
         self.fix_resource_type(package_dict['resources'])
@@ -147,14 +147,23 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
 
         return
 
-    def handle_groups(self, harvest_object, group_mapping, gn_localized_url):
+    def handle_groups(self, harvest_object, group_mapping, gn_localized_url, values):
         try:
             context = {'model': model, 'session': Session, 'user': 'harvest'}
             validated_groups = []
+            cats = []
 
-            version = self.source_config.get('version')
-            client = GeoNetworkClient(gn_localized_url, version)
-            cats = client.retrieveMetadataCategories(harvest_object.guid)
+            harvest_iso_categories = self.source_config.get('harvest_iso_categories')
+            if harvest_iso_categories == "True":
+                # Handle groups mapping using metadata TopicCategory
+                cats = values["topic-category"]
+                log.info(':::::::::::::-TOPIC-CATEGORY-::::::::::::: %r ', cats)
+            else:
+                # Handle groups mapping using GeoNetwork categories
+                version = self.source_config.get('version')
+                client = GeoNetworkClient(gn_localized_url, version)
+                cats = client.retrieveMetadataCategories(harvest_object.guid)
+            
             for cat in cats:
                 groupname = group_mapping[cat]
 
