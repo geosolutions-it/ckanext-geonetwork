@@ -113,8 +113,8 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
         if time_extents:
             log.info("Adding Time Instants...")
             package_dict['extras'].append({'key': 'temporal-extent-instant', 'value': time_extents})
-        
-        ## Configuring package groups            
+
+        ## Configuring package groups
         group_mapping = self.source_config.get('group_mapping', {})
 
         if group_mapping:
@@ -163,7 +163,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
                 version = self.source_config.get('version')
                 client = GeoNetworkClient(gn_localized_url, version)
                 cats = client.retrieveMetadataCategories(harvest_object.guid)
-            
+
             for cat in cats:
                 groupname = group_mapping[cat]
 
@@ -185,6 +185,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
         except Exception, e:
             log.warning('Error handling groups for metadata %s' % harvest_object.guid)
 
+        log.debug('Successfully mapped groups: %s' % validated_groups)
         return validated_groups
 
     def fix_resource_type(self, resources):
