@@ -34,7 +34,7 @@ class GeoNetworkClient(object):
         else:
             url = "%s/mef.export" % urlbase
 
-        logger.info('Loading MEF for %s from %s', uuid, url)
+        logger.debug('Loading MEF for %s from %s', uuid, url)
         resp = requests.get(url, params={'uuid': uuid}, stream=True)
 
         zdata = StringIO(resp.content)

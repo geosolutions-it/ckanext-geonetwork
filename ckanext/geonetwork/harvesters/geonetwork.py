@@ -2,8 +2,9 @@ from .utils import GeoNetworkClient
 from .utils import GEONETWORK_V210, GEONETWORK_V26
 
 import re
-
 import logging
+
+from urlparse import urlparse
 
 from ckan import model
 from ckan.model import Session
@@ -189,8 +190,9 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
         return validated_groups
 
     def fix_resource_type(self, resources):
+        protocol_key = 'resource_locator_protocol'
         for resource in resources:
-            if 'OGC:WMS' in resource['resource_locator_protocol']:
+            if 'OGC:WMS' in resource[protocol_key]:
                 resource['format'] = 'wms'
 
                 if config.get('ckanext.spatial.harvest.validate_wms', False):
@@ -201,3 +203,18 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
                         resource['verified'] = True
                         resource['verified_date'] = datetime.now().isoformat()
 
+            # process WFS links and use outputFormat query param to set format
+            resource_url = resource.get('url', '').lower()
+
+            is_wfs = 'OGC:WFS' in resource[protocol_key]
+            if is_wfs is False and resource_url:
+                is_wfs = 'service=wfs' in resource_url
+
+            if is_wfs:
+                param = list(filter(
+                    lambda p: p.split('=')[0] == 'outputformat',
+                    urlparse(resource_url).query.split('&')
+                ))
+                outputfmt = (param or None) and param[-1].split('=')[-1]
+                if outputfmt:
+                    resource['format'] = outputfmt.strip().upper()
