@@ -1,0 +1,536 @@
+# Italian translations for ckan.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the ckan project.
+#
+# Translators:
+# alesarrett <alessandro.sarretta@gmail.com>, 2013
+# <dex@lucadex.it>, 2012
+# groundrace <groundrace@me.com>, 2013
+# <internet@davidread.org>, 2011
+# lafuga2 <lafuga2@gmail.com>, 2012
+# Luca De Santis <lucadex@gmail.com>, 2012
+# M2M <matteo.merlanti@gmail.com>, 2013
+# Monica Cainarca <monberl@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version:  CKAN\n"
+"Report-Msgid-Bugs-To: http://trac.ckan.org/\n"
+"POT-Creation-Date: 2016-12-15 11:05+0100\n"
+"PO-Revision-Date: 2013-12-04 11:44+0100\n"
+"Last-Translator: amercader <amercadero@gmail.com>\n"
+"Language-Team: Italian "
+"(http://www.transifex.com/projects/p/ckan/language/it/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: ckanext/datitrentinoit/templates/base.html:8
+msgid "{title} Atom Feed"
+msgstr "Feed Atom di {title}"
+
+#: ckanext/datitrentinoit/templates/footer.html:13
+msgid "About {0}"
+msgstr "Informazioni {0}"
+
+#: ckanext/datitrentinoit/templates/footer.html:17
+msgid "Frequently Asked Questions"
+msgstr "Domande frequenti"
+
+#: ckanext/datitrentinoit/templates/footer.html:22
+#: ckanext/datitrentinoit/templates/pages/acknowledgements.html:4
+#: ckanext/datitrentinoit/templates/pages/acknowledgements.html:8
+msgid "Acknowledgements"
+msgstr "Ringraziamenti"
+
+#: ckanext/datitrentinoit/templates/footer.html:26
+#: ckanext/datitrentinoit/templates/pages/legal_notes.html:5
+#: ckanext/datitrentinoit/templates/pages/legal_notes.html:9
+#: ckanext/datitrentinoit/templates/pages/legal_notes.html:19
+msgid "Legal notes"
+msgstr "Note legali"
+
+#: ckanext/datitrentinoit/templates/footer.html:30
+#: ckanext/datitrentinoit/templates/pages/privacy.html:5
+#: ckanext/datitrentinoit/templates/pages/privacy.html:9
+#: ckanext/datitrentinoit/templates/pages/privacy.html:19
+msgid "Privacy"
+msgstr "Privacy"
+
+#: ckanext/datitrentinoit/templates/footer.html:38
+msgid "CKAN API"
+msgstr "CKAN API"
+
+#: ckanext/datitrentinoit/templates/footer.html:39
+msgid "Open Knowledge Foundation"
+msgstr "Open Knowledge Foundation"
+
+#: ckanext/datitrentinoit/templates/footer.html:52
+msgid ""
+"<strong>Powered by</strong> <a class=\"hide-text ckan-footer-logo\" "
+"href=\"http://ckan.org\">CKAN</a>"
+msgstr ""
+"<strong>Fatto con</strong> <a class=\"hide-text ckan-footer-logo\" "
+"href=\"http://ckan.org\">CKAN</a>"
+
+#: ckanext/datitrentinoit/templates/header.html:19
+msgid "Datasets"
+msgstr "Dataset"
+
+#: ckanext/datitrentinoit/templates/header.html:20
+msgid "Organizations"
+msgstr "Organizzazioni"
+
+#: ckanext/datitrentinoit/templates/header.html:21
+#: ckanext/datitrentinoit/templates/group/index.html:7
+#: ckanext/datitrentinoit/templates/group/index.html:19
+msgid "Categories"
+msgstr "Categorie"
+
+#: ckanext/datitrentinoit/templates/header.html:22
+#: ckanext/datitrentinoit/templates/home/about.html:5
+#: ckanext/datitrentinoit/templates/home/about.html:8
+#: ckanext/datitrentinoit/templates/home/about.html:15
+msgid "About"
+msgstr "Informazioni"
+
+#: ckanext/datitrentinoit/templates/header.html:23
+msgid "Showcases"
+msgstr "Bacheca"
+
+#: ckanext/datitrentinoit/templates/header.html:24
+#: ckanext/datitrentinoit/templates/pages/faq.html:5
+#: ckanext/datitrentinoit/templates/pages/faq.html:9
+#: ckanext/datitrentinoit/templates/pages/faq.html:17
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ckanext/datitrentinoit/templates/group/index.html:3
+msgid "Categories of Datasets"
+msgstr "Categorie di dataset"
+
+#: ckanext/datitrentinoit/templates/group/index.html:14
+msgid "Add Category"
+msgstr "Aggiungi Categoria"
+
+#: ckanext/datitrentinoit/templates/group/index.html:21
+msgid "Search categories..."
+msgstr "Cerca categorie..."
+
+#: ckanext/datitrentinoit/templates/group/index.html:28
+msgid "There are currently no categories for this site"
+msgstr "Al momento non ci sono categorie per questo sito"
+
+#: ckanext/datitrentinoit/templates/group/index.html:30
+msgid "How about creating one?"
+msgstr "Come crearne uno?"
+
+#: ckanext/datitrentinoit/templates/group/index.html:46
+msgid "About categories"
+msgstr "Informazioni sulle categorie"
+
+#: ckanext/datitrentinoit/templates/group/index.html:50
+msgid ""
+"Categories group datasets into specific homogeneous fields of economic "
+"and/or functional areas."
+msgstr ""
+"Le categorie presentano i dataset entro specifici ambiti omogenei di "
+"settori economici e/o funzionali."
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:10
+msgid "Name"
+msgstr "Nome"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:10
+msgid "My Group"
+msgstr "Le mie Categorie"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:18
+msgid "URL"
+msgstr "URL"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:18
+msgid "my-group"
+msgstr "Le mie Categorie"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:20
+msgid "Description"
+msgstr "Descrizione"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:20
+msgid "A little information about my group..."
+msgstr "Alcune informazioni sulla mia categoria..."
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:35
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:48
+msgid "Custom Field"
+msgstr "Campo libero"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:80
+msgid "Are you sure you want to delete this Group?"
+msgstr "Sei sicuro di voler cancellare questa Categoria?"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:81
+msgid "Delete"
+msgstr "Elimina"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_form.html:84
+msgid "Save Group"
+msgstr "Salva Categoria"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_item.html:30
+msgid "{num} Dataset"
+msgid_plural "{num} Datasets"
+msgstr[0] "{num} Dataset"
+msgstr[1] "{num} Dataset"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_item.html:32
+msgid "0 Datasets"
+msgstr "0 Datasets"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_item.html:35
+#: ckanext/datitrentinoit/templates/group/snippets/group_item.html:36
+msgid "View {name}"
+msgstr "Visualizza {name}"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_item.html:39
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: ckanext/datitrentinoit/templates/group/snippets/group_item.html:39
+msgid "Remove dataset from this group"
+msgstr "Rimuovi il dataset da questo Categoria"
+
+#: ckanext/datitrentinoit/templates/home/index.html:30
+msgid "What's the weather like, today, in Trentino"
+msgstr "Che tempo fa, oggi, in Trentino"
+
+#: ckanext/datitrentinoit/templates/home/index.html:32
+msgid "all the <a href=\"{link}\">weather datasets</a>:"
+msgstr "tutti i <a href=\"{link}\">dataset sul meteo</a>:"
+
+#: ckanext/datitrentinoit/templates/home/index.html:35
+msgid "daily forecasts, mountain forecasts, chances of rain"
+msgstr ""
+"le previsioni giornaliere, le previsioni in montagna, le probabilità di "
+"pioggia"
+
+#: ckanext/datitrentinoit/templates/home/index.html:42
+msgid "PDO, PGI, TSG"
+msgstr "DOP, IGT, SGP"
+
+#: ckanext/datitrentinoit/templates/home/index.html:44
+msgid "a tasty tour among typical Trentino products"
+msgstr "i prodotti tipici che danno sapore alla Provincia di Trento"
+
+#: ckanext/datitrentinoit/templates/home/index.html:48
+msgid "Click here to discover more"
+msgstr "Clicca qui per scoprire di più"
+
+#: ckanext/datitrentinoit/templates/home/index.html:56
+msgid "Partecipate"
+msgstr "Partecipa"
+
+#: ckanext/datitrentinoit/templates/home/index.html:59
+msgid "Is there any dataset you’d like to be available?"
+msgstr "Ci sono dati che vorresti fossero resi disponibili?"
+
+#: ckanext/datitrentinoit/templates/home/index.html:64
+msgid "Do you have an idea that uses the datasets in the catalog?"
+msgstr "Hai un idea che usi i dataset del catalogo?"
+
+#: ckanext/datitrentinoit/templates/home/index.html:67
+msgid "Write to <a href=\"mailto:{email}\">{email}</a>"
+msgstr "Scrivi a <a href=\"mailto:{email}\">{email}</a>"
+
+#: ckanext/datitrentinoit/templates/home/index.html:79
+msgid "Popular Tags"
+msgstr "Tags popolari"
+
+#: ckanext/datitrentinoit/templates/home/index.html:93
+msgid "Find data"
+msgstr "Cerca dati"
+
+#: ckanext/datitrentinoit/templates/home/index.html:94
+msgid ""
+"Search for data, and get updates from datasets and groups that you're "
+"interested in."
+msgstr ""
+"Cerca i dati, e ottieni gli aggiornamenti per i dataset e le categorie a cui "
+"sei interessato."
+
+#: ckanext/datitrentinoit/templates/home/index.html:104
+#: ckanext/datitrentinoit/templates/home/index.html:106
+msgid "Search"
+msgstr "Cerca"
+
+#: ckanext/datitrentinoit/templates/home/index.html:130
+msgid "Latest changes"
+msgstr "Ultime modifiche"
+
+#: ckanext/datitrentinoit/templates/organization/snippets/helper.html:4
+msgid "What are Organizations?"
+msgstr "Cose sono le Organizzazioni?"
+
+#: ckanext/datitrentinoit/templates/organization/snippets/helper.html:8
+msgid ""
+"An organization identify and collects information related to its "
+"institutional source.<br>Usually organizations are the data holder "
+"entities."
+msgstr ""
+"Un'organizzazione individua e raccoglie le informazioni in relazione alla"
+" loro provenienza istituzionale.<br>Le organizzazioni sono solitamente le"
+" strutture titolari dei dati."
+
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:3
+msgid "Field Description"
+msgstr "Descrizione Campi"
+
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:4
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:24
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:36
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:48
+msgid "N/D"
+msgstr "N/A"
+
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:6
+msgid "Additional Info"
+msgstr " Informazioni Addizionali"
+
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:13
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:18
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:23
+msgid "Author"
+msgstr "Contatto"
+
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:30
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:35
+msgid "Origin"
+msgstr "Sito di riferimento"
+
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:42
+#: ckanext/datitrentinoit/templates/package/snippets/additional_info.html:47
+msgid "Contact"
+msgstr "Altro Contatto"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:6
+#: ckanext/datitrentinoit/templates/related/dashboard.html:9
+#: ckanext/datitrentinoit/templates/related/dashboard.html:16
+msgid "Apps & Ideas"
+msgstr "Apps & Idee"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:21
+#, python-format
+msgid ""
+"\n"
+"            <p>Showing items <strong>%(first)s - %(last)s</strong> of "
+"<strong>%(item_count)s</strong> related items found</p>\n"
+"          "
+msgstr ""
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:25
+#, python-format
+msgid ""
+"\n"
+"            <p><strong>%(item_count)s</strong> related items found</p>\n"
+"          "
+msgstr ""
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:29
+msgid "There have been no apps submitted yet."
+msgstr "Non sono state ancora inviate app."
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:48
+msgid "What are applications?"
+msgstr "Cosa sono le applicazioni?"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:51
+msgid "On this page are listed the apps."
+msgstr ""
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:56
+msgid "Filter Results"
+msgstr "Risultato del Filtro"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:61
+msgid "Filter by type"
+msgstr "Filtra per tipo"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:63
+msgid "All"
+msgstr "Tutti"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:71
+msgid "Sort by"
+msgstr "Ordina per"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:73
+msgid "Default"
+msgstr "Default"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:83
+msgid "Only show featured items"
+msgstr "Mostra solo gli elementi in evidenza"
+
+#: ckanext/datitrentinoit/templates/related/dashboard.html:88
+msgid "Apply"
+msgstr "Richiedi"
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:15
+msgid "{number} dataset found for \"{query}\""
+msgid_plural "{number} datasets found for \"{query}\""
+msgstr[0] "{number} dataset trovato per \"{query}\""
+msgstr[1] "{number} dataset trovati per \"{query}\""
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:16
+msgid "Sorry no datasets found for \"{query}\""
+msgstr "Spiacente, nessun dataset trovato per \"{query}\""
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:17
+msgid "{number} dataset found"
+msgid_plural "{number} datasets found"
+msgstr[0] "{number} dataset trovato"
+msgstr[1] "{number} dataset trovati"
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:18
+msgid "Sorry no datasets found"
+msgstr "Spiacente, nessun dataset trovato"
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:21
+msgid "{number} category found for \"{query}\""
+msgid_plural "{number} categories found for \"{query}\""
+msgstr[0] "{number} categoria trovata per \"{query}\""
+msgstr[1] "{number} categorie trovate per \"{query}\""
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:22
+msgid "Sorry no categories found for \"{query}\""
+msgstr "Spiacente, nessuna categoria trovata per \"{query}\""
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:23
+msgid "{number} category found"
+msgid_plural "{number} categories found"
+msgstr[0] "{number} categoria trovata"
+msgstr[1] "{number} categorie trovate"
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:24
+msgid "Sorry no categories found"
+msgstr "Spiacente, nessuna categoria trovata"
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:27
+msgid "{number} organization found for \"{query}\""
+msgid_plural "{number} organizations found for \"{query}\""
+msgstr[0] "nessuna organizzazione trovata per \"{query}\""
+msgstr[1] "{number} organizzazioni trovate per \"{query}\""
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:28
+msgid "Sorry no organizations found for \"{query}\""
+msgstr "Spiacente, nessuna organizzazione trovata per \"{query}\""
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:29
+msgid "{number} organization found"
+msgid_plural "{number} organizations found"
+msgstr[0] "nessuna organizzazione trovata"
+msgstr[1] "{number} organizzazioni trovate"
+
+#: ckanext/datitrentinoit/templates/snippets/search_result_text.html:30
+msgid "Sorry no organizations found"
+msgstr "Spiacente, nessuna organizzazione trovata"
+
+#: ckanext/datitrentinoit/templates/user/new.html:3
+msgid "Register"
+msgstr "Iscriviti"
+
+#: ckanext/datitrentinoit/templates/user/new.html:6
+msgid "Registration"
+msgstr "Registrazione"
+
+#: ckanext/datitrentinoit/templates/user/new.html:13
+msgid "Register for an Account"
+msgstr "Registra un Account"
+
+#: ckanext/datitrentinoit/templates/user/new.html:22
+msgid "Why Sign Up?"
+msgstr "Perché iscriversi?"
+
+#: ckanext/datitrentinoit/templates/user/new.html:24
+msgid ""
+"To keep you up to date about the catalog activities and to follow updates"
+" about datasets you are interested in."
+msgstr ""
+"Per restare aggiornati sulle attività nel catalogo e seguire gli "
+"aggiornamenti di dati d'interesse"
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:5
+msgid "Username"
+msgstr "Nome utente"
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:6
+msgid "Full Name"
+msgstr "Nome completo"
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:7
+msgid "Email"
+msgstr "E-mail"
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:8
+msgid "Password"
+msgstr "Password"
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:9
+msgid "Confirm"
+msgstr "Conferma"
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:29
+msgid ""
+"By registering a user, you confirm you read our <a "
+"href=\"%(tc_url)s\">Legal notes</a> and <a href=\"%(pp_url)s\">Privacy "
+"policy</a>."
+msgstr ""
+"Registrandoti come utente confermi di aver letto le <a "
+"href=\"{tc_url}\">Note Legali del Portale</a> e l'<a "
+"href=\"{pp_url}\">Informativa sulla Privacy</a>."
+
+#: ckanext/datitrentinoit/templates/user/new_user_form.html:33
+msgid "Create Account"
+msgstr "Crea un Account"
+
+msgid "Creation Date"
+msgstr "Data di creazione"
+
+msgid "Encoding"
+msgstr "Codifica"
+
+msgid "Site URL"
+msgstr "URL del sito"
+
+msgid "Contact"
+msgstr "Altro Contatto"
+
+msgid "Fields Description"
+msgstr "Descrizione dei campi"
+
+msgid "All languages"
+msgstr "Tutte le lingua"
+
+msgid "Localized Tag Name"
+msgstr "Nome Tag Visualizzato"
+
+### STRINGHE LOCALIZZAZIONE PLUGIN SHIBBOLETH
+
+msgid "Shibboleth"
+msgstr "SPID"
+
+#: ckanext/shibboleth/templates/user/snippets/login_form.html:26
+msgid "Login through Shibboleth."
+msgstr "Accedi attraverso SPID"
+
+#: ckanext/shibboleth/templates/user/snippets/login_form.html:33
+msgid "Login via Shibboleth"
+msgstr "Accedi attraverso SPID"
+
+#: ckanext/shibboleth/templates/user/snippets/login_form.html:45
+msgid "Authentication by using local account"
+msgstr "Autenticazione con account amministratore"
+
+
