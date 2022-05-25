@@ -18,7 +18,7 @@ from ckanext.spatial.model import ISOElement
 
 from ckan.logic import ValidationError, NotFound, get_action
 
-from pylons import config
+from ckan.plugins.toolkit import config
 from datetime import datetime
 
 log = logging.getLogger(__name__)
@@ -180,9 +180,9 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
                         #else:
                         #validated_groups.append(group['id'])
                         validated_groups.append({'name': groupname})
-                    except NotFound, e:
+                    except NotFound as e:
                         log.warning('Group %s from category %s is not available' % (groupname, cat))
-        except Exception, e:
+        except Exception as e:
             log.warning('Error handling groups for metadata %s' % harvest_object.guid)
 
         return validated_groups
