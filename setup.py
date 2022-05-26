@@ -22,11 +22,8 @@ setup(
     install_requires=[
        # -*- Extra requirements: -*-
     ],
-    entry_points=
-    """
+    entry_points='''
         [ckan.plugins]
-        # Add plugins here, eg
-        # myplugin=ckanext.geonetwork:PluginClass
         geonetwork_harvester=ckanext.geonetwork.harvesters:GeoNetworkHarvester
-            """,
+    ''',
 )
