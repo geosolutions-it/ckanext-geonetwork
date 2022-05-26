@@ -24,10 +24,6 @@ setup(
     ],
     entry_points='''
         [ckan.plugins]
-        geonetwork = ckanext.geonetwork.plugin:GeoNetworkPlugin
         geonetwork_harvester=ckanext.geonetwork.harvesters:GeoNetworkHarvester
-
-        [babel.extractors]
-        ckan = ckan.lib.extract:extract_ckan
     ''',
 )
