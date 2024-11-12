@@ -2,9 +2,9 @@
 import logging
 #import re
 import urllib
-import urllib2
+import urllib.request
 import zipfile
-from StringIO import StringIO
+import io
 from lxml import etree
 
 GEONETWORK_V26 = "2.6"
@@ -27,26 +27,20 @@ class GeoNetworkClient(object):
     def retrieveInfo(self, uuid):
 
         if self.version == GEONETWORK_V26:
-            url = "%s/srv/en/mef.export" % self.base
-            #headers = {
-                #"Content-Type": "application/x-www-form-urlencoded",
-                #"Accept": "text/plain"
-            #}
-            query = urllib.urlencode({
-                "uuid": uuid
-            })
+            # url = "%s/srv/en/mef.export" % self.base
+            url = "%smef.export?uuid=%s" % (self.base, uuid)
 
-            logger.info('Loading MEF for %s', uuid)
-            request = urllib2.Request(url, query)
-            opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(), urllib2.HTTPRedirectHandler())
+            logger.info('URL %r ', url)
+
+            request = urllib.request.Request(url, method='GET')
+            opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(), urllib.request.HTTPRedirectHandler())
 
             response = opener.open(request)  # will get a ZIP file
             content = response.read()
-
-            #logger.info('----> %s', content)
+                
             #print 'RESPONSE ', content
 
-            zdata = StringIO(content)
+            zdata = io.BytesIO(content)
             zfile = zipfile.ZipFile(zdata)
 
             xml = None
@@ -54,19 +48,18 @@ class GeoNetworkClient(object):
             for name in zfile.namelist():
                 #logger.info(' MEF entry: %s', name)
                 #print ' MEF entry: ', name
-                if name == 'info.xml':
+                if name == 'metadata.xml':
                     uncompressed = zfile.read(name)
                     xml = etree.fromstring(uncompressed)
-
+            
             return xml
 
     def retrieveMetadataCategories(self, uuid):
         xml = self.retrieveInfo(uuid)
-
         cats = []
 
         for cat in xml.findall('categories/category'):
-            cats.append(cat.get('name'))
+            logger.info('cat %r', cat)
+            cats.append(cat.get('name')) 
 
         return cats
-

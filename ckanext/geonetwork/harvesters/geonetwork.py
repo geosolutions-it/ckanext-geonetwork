@@ -13,12 +13,12 @@ from ckan.plugins.core import SingletonPlugin
 from ckanext.spatial.lib.csw_client import CswService
 from ckanext.spatial.harvesters.csw import CSWHarvester
 
-from ckanext.spatial.model import ISODocument
-from ckanext.spatial.model import ISOElement
+from ckanext.spatial.harvested_metadata import ISODocument
+from ckanext.spatial.harvested_metadata import ISOElement
 
 from ckan.logic import ValidationError, NotFound, get_action
 
-from pylons import config
+from ckan.common import config
 from datetime import datetime
 
 log = logging.getLogger(__name__)
@@ -80,7 +80,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
 
             existing_keys = [entry.get('key') for entry in package_dict['extras']]
 
-            for key, value in default_extras.iteritems():
+            for key, value in default_extras.items():
                 log.debug('Processing extra %s', key)
                 if not key in existing_keys or override_extras:
                     # Look for replacement strings
@@ -163,8 +163,10 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
                 version = self.source_config.get('version')
                 client = GeoNetworkClient(gn_localized_url, version)
                 cats = client.retrieveMetadataCategories(harvest_object.guid)
+                log.info(':::::::::::::-TOPIC-CATEGORY-::::::::::::: %r ', cats)
             
             for cat in cats:
+                log.info('group_mapping %r', group_mapping.items())
                 groupname = group_mapping[cat]
 
                 printname = groupname if not None else "NONE"
@@ -172,6 +174,7 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
 
                 if groupname:
                     try:
+                        log.info('groupname1 %r', groupname)
                         data_dict = {'id': groupname}
                         get_action('group_show')(context, data_dict)
                         #log.info('Group %s found %s' % (groupname, group))
@@ -180,10 +183,11 @@ class GeoNetworkHarvester(CSWHarvester, SingletonPlugin):
                         #else:
                         #validated_groups.append(group['id'])
                         validated_groups.append({'name': groupname})
-                    except NotFound, e:
+                    except NotFound as e:
                         log.warning('Group %s from category %s is not available' % (groupname, cat))
-        except Exception, e:
-            log.warning('Error handling groups for metadata %s' % harvest_object.guid)
+        except Exception as e:
+            # log.warning('Error handling groups for metadata %s' % harvest_object.guid)
+            log.warning('Error handling groups for metadata %r', e)
 
         return validated_groups
 
